@@ -1,0 +1,17 @@
+﻿<navbar></navbar>
+<div>
+    <div class="container">
+        <section>
+            <h4>Standard date-picker</h4>
+            <md-datepicker ng-model="dashboard.date" md-placeholder="Enter date" ng-change="dashboard.findAllSchedules(dashboard.date)"></md-datepicker>
+        </section>
+        <section>
+            <h4>Schedules</h4>
+            <div layout="row" layout-xs="column">
+                <div class="col-md-3" ng-repeat="user in dashboard.users">
+                    <task-container ng-click="dashboard.lookAtSchedule(user)" header-display="user.Name" task-data="dashboard.findScheduleById(user.Id)"></task-container>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

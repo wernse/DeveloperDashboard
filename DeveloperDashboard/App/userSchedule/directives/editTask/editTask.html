@@ -1,0 +1,52 @@
+﻿<md-content layout-padding="" flex-gt-sm="">
+    <div>
+        <div layout-gt-xs="row" >
+            <md-input-container class="md-block" flex-gt-sm="">
+                <label>Status</label>
+                <input ng-model="$ctrl.task.Status">
+            </md-input-container>
+            <div flex="5" hide-xs hide-sm>
+                <!-- Spacer //-->
+            </div>
+            <div flex-xs flex="40" layout-gt-xs="row" layout-align="center center">
+                <div flex-xs flex="50">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>Hours</label>
+                        <input ng-model="$ctrl.task.Hours">
+                    </md-input-container>
+                </div>
+                <div flex="5" hide-xs hide-sm>
+                    <!-- Spacer //-->
+                </div>
+                <div flex-xs flex="50">
+                    <md-checkbox ng-model="$ctrl.task.Billable" aria-label="Checkbox 1">Billable</md-checkbox>
+                </div>
+              
+            </div>
+        </div>
+
+        <div layout-gt-xs="row">
+            <md-input-container class="md-block" flex-gt-xs="">
+                <label>Description</label>
+                <input ng-model="$ctrl.task.Description">
+            </md-input-container>
+        </div>
+
+        <div layout-gt-xs="row">
+            <md-input-container class="md-block" flex-gt-sm="">
+                <label>Company</label>
+                <md-select ng-model="$ctrl.task.CompanyId" ng-change="$ctrl.changeCompany($ctrl.task.CompanyId, $ctrl.task)">
+                    <md-option ng-repeat="company in $ctrl.companies" value="{{company.Id}}">
+                        {{company.Name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div layout-gt-xs="row">
+            <md-input-container class="md-block" flex-gt-sm="">
+                <label>Meta</label>
+                <input ng-model="$ctrl.task.Meta">
+            </md-input-container>
+        </div>
+    </div>
+</md-content>

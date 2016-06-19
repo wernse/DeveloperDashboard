@@ -1,0 +1,25 @@
+﻿$blue:#448AFF;
+$red:#FF5252;
+$green:#69F0AE;
+$white:#fff;
+
+.taskItemContainer{
+    .tile{
+        border-left: 3px solid;
+        padding: 10px 17px 10px 17px;
+        margin-bottom: 10px !important;
+        margin-top: 10px !important;
+    }
+    .blue{
+        border-color: $blue;
+    }
+    .red{
+        border-color: $red;
+    }
+    .green{
+        border-color: $green;
+    }
+    .white{
+        border-color: $white;
+    }
+}

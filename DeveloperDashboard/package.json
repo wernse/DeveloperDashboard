@@ -1,0 +1,16 @@
+{
+	"name": "ASP.NET",
+  "version": "1.0.0",
+	"private": true,
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-concat": "2.5.2",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.16",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.6"
+  }
+}

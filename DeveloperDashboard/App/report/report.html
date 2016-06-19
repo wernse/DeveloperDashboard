@@ -1,0 +1,29 @@
+﻿<navbar></navbar>
+<div>
+    <div class="container">
+        <section>
+            <h4>Standard date-picker</h4>
+            <md-datepicker ng-model="report.date" md-placeholder="Enter date" ng-change="report.getWeeklySchedulesByDate(report.date)"></md-datepicker>
+        </section>
+        <section>
+            <md-toolbar class="md-theme-light">
+                <h2 class="md-toolbar-tools">
+                    <span>Developer Hours: {{report.dateRange[0]}} to {{report.dateRange[report.dateRange.length-1]}}</span>
+                </h2>
+            </md-toolbar>
+            <md-content>
+                <md-list>
+                    <md-list-item class="md-3-line" ng-repeat="hours in report.taskHours">
+                        <div class="md-list-item-text">
+                            <h3><b>{{report.userMap[hours.UserId]}}</b>:  {{hours.BillableHours/(hours.NonBillableHours+hours.BillableHours)*100|number:2}}%</h3>
+                            <h4>Billable : {{hours.BillableHours}}h</h4>
+                            <h4>Non-Billable : {{hours.NonBillableHours}}h</h4>
+                            <md-divider ng-if="!$last"></md-divider>
+                        </div>
+                        <md-button class="md-secondary">Details</md-button>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </section>
+    </div>
+</div>

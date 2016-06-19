@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "DeveloperDashboard6333"
+  },
+  "hostingPlanName": {
+    "value": "DeveloperDashboard"
+  },
+  "siteLocation": {
+    "value": "Central US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "26c44000-026a-4d4d-a426-07ea2e494fa7"
+  },
+  "resourceGroup": {
+    "value": "Default-Storage-AustraliaSoutheast"
+  }
+}

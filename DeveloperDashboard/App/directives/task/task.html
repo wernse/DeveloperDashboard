@@ -1,0 +1,18 @@
+﻿<div class="taskItemContainer">
+    <div class="md-list-item-text tile {{$ctrl.colour}}" >
+        <div flex-xs flex="" layout-gt-xs="row" layout-align="center center">
+            <div flex="50">
+                <i class="material-icons">
+                    <span ng-if="!$ctrl.data.Billable">money_off</span>
+                    <span ng-if="$ctrl.data.Billable">attach_money</span>
+                </i>
+            </div>
+            <div flex="50" class="text-right">
+                <i class="material-icons">alarm</i>{{$ctrl.data.Hours}}
+            </div>
+        </div>
+ 
+        <h3>{{$ctrl.data.Status}}</h3>
+        <p>{{$ctrl.data.Description}}</p>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+.listContainer {
+  border: 1px solid #E0E0E0; }
+
+.float-right {
+  float: right; }
+
+.navbar {
+  background-color: #fff;
+  border-color: #fff;
+  border-radius: 0px;
+  border-bottom: 1px solid; }
+
+.logo {
+  position: relative;
+  font-weight: 700;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #FD761B; }
+
+.navbar-header {
+  margin-top: 9px; }
+
+.taskItemContainer .tile {
+  border-left: 3px solid;
+  padding: 10px 17px 10px 17px;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important; }
+
+.taskItemContainer .blue {
+  border-color: #448AFF; }
+
+.taskItemContainer .red {
+  border-color: #FF5252; }
+
+.taskItemContainer .green {
+  border-color: #69F0AE; }
+
+.taskItemContainer .white {
+  border-color: #fff; }
+
+.taskContainer {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  padding: 20px; }
+  .taskContainer .header {
+    font-size: 1.33em;
+    font-weight: 600; }
+  .taskContainer .md-list-item ._md-no-style, .taskContainer md-list-item._md-no-proxy, .taskContainer .md-toolbar-tools {
+    padding: 0px !important; }
+  .taskContainer .md-toolbar.md-default-theme:not(.md-menu-toolbar), .taskContainer md-toolbar:not(.md-menu-toolbar) {
+    background-color: #fff;
+    color: #000; }
+  .taskContainer .text-right {
+    text-align: right; }
+
+md-dialog {
+  width: 50%; }
