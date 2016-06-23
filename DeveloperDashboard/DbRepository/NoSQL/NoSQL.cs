@@ -7,30 +7,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using DeveloperDashboard.App_Start;
 
 namespace DeveloperDashboard.DbRepository.NoSQL
 {
     public class NoSQL
     {
-        public static class RavenContext
-        {
-            public static readonly IDocumentStore store = new DocumentStore
-            {
-                Url = "http://wernsen-pc:8080/",
-                DefaultDatabase = "test"
-            }.Initialize();
-
-            public static IDocumentSession CreateSession()
-            {
-                return store.OpenSession();
-            }
-
-        }
 
 
         public void SaveObject<T>(T objectToSave)
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
                 session.Store(objectToSave); // stores employee in session, assigning it to a collection `Employees`
                 session.SaveChanges();
@@ -41,7 +28,7 @@ namespace DeveloperDashboard.DbRepository.NoSQL
 
         public List<T> GetAllObjects<T>()
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
                 List<T> objectList = session.Query<T>()
                     .ToList();
@@ -51,7 +38,7 @@ namespace DeveloperDashboard.DbRepository.NoSQL
 
         public void DeleteAll<T>()
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
 
                 List<T> userList = session.Query<T>()
@@ -67,7 +54,7 @@ namespace DeveloperDashboard.DbRepository.NoSQL
 
         public void InitSchedules()
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
                 session.Store(
                     new Schedule
@@ -114,7 +101,7 @@ namespace DeveloperDashboard.DbRepository.NoSQL
             DeleteAll<User>();
             DeleteAll<Company>();
             DeleteAll<Schedule>();
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
                 session.Store(new User
                 {

@@ -6,6 +6,7 @@ using DeveloperDashboard.Models;
 using Raven.Client;
 using Raven.Client.Indexes;
 using static DeveloperDashboard.DbRepository.NoSQL.NoSQL;
+using DeveloperDashboard.App_Start;
 
 namespace DeveloperDashboard.DbRepository
 {
@@ -13,7 +14,7 @@ namespace DeveloperDashboard.DbRepository
     {
         public IEnumerable<Schedule> GetAllSchedules(string date)
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
                 List<Schedule> results = session
                     .Query<Schedule>()
@@ -25,9 +26,9 @@ namespace DeveloperDashboard.DbRepository
 
         public IEnumerable<UserReport> GetBillableTotalHours(List<string> dates)
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
-                new GetBillableTotalHoursIndex().Execute(RavenContext.store);
+                new GetBillableTotalHoursIndex().Execute(RavenConfig.Store);
                 //use transformer with parameter? https://ravendb.net/docs/article-page/3.0/csharp/transformers/passing-parameters
                 var test = session
                     .Query<GetBillableTotalHoursIndex.Result, GetBillableTotalHoursIndex>().ToList(); ;
@@ -59,7 +60,7 @@ namespace DeveloperDashboard.DbRepository
 
         public Schedule GetScheduleByUserAndDate(string userId, string date)
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
                 Schedule schedule = session
                     .Query<Schedule>()
@@ -70,7 +71,7 @@ namespace DeveloperDashboard.DbRepository
 
         public string SaveSchedule(Schedule schedule)
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
                 session.Store(schedule);
                 session.SaveChanges();

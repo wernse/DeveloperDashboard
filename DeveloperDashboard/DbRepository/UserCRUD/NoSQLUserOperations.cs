@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DeveloperDashboard.App_Start;
 using DeveloperDashboard.Models;
 using Raven.Client;
 using Raven.Client.Document;
@@ -13,7 +14,7 @@ namespace DeveloperDashboard.DbRepository.UserCRUD
     {
         public IEnumerable<User> GetAllUsers()
         {
-            using (IDocumentSession session = RavenContext.CreateSession())
+            using (IDocumentSession session = RavenConfig.Store.OpenSession())
             {
                 IEnumerable<User> userListEnumerable = session.Query<User>().ToList();
                 return userListEnumerable;
